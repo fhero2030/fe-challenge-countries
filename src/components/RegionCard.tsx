@@ -12,7 +12,7 @@ const RegionCard = (props: Props) => {
   const { region, capital, name, population, flag } = props;
 
   return (
-    <div className="cursor-pointer overflow-hidden rounded-lg shadow-md hover:shadow-inner">
+    <div className="cursor-pointer overflow-hidden rounded-lg shadow-md hover:shadow-inner dark:bg-dark-element">
       <img src={flag} className="h-44 w-full" alt={name} />
 
       <div className="px-4 pt-6 pb-12">

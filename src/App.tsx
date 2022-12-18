@@ -59,7 +59,7 @@ function App() {
       <main className="mx-auto max-w-[1440px] px-4">
         <div className="mb-10 flex-row gap-10 sm:flex sm:justify-between">
           <input
-            className="mb-10 block w-full px-8 py-4 text-xs shadow-md sm:m-0 sm:w-80"
+            className="mb-10 block w-full rounded-md px-8 py-4 text-xs shadow-md dark:bg-dark-element dark:text-dark-text sm:m-0 sm:w-80"
             placeholder="Search for a country..."
             onChange={(e) => {
               setCountryFilter(e.target.value.trim());
@@ -68,7 +68,7 @@ function App() {
 
           <select
             id="region"
-            className="rounded-md border-r-[16px] border-r-transparent p-4 text-xs font-semibold shadow-md sm:w-56"
+            className="rounded-md border-r-[16px] border-r-dark-text p-4 text-xs font-semibold shadow-md dark:border-r-dark-element dark:bg-dark-element sm:w-56"
             defaultValue={regionFilter}
             onChange={(e) => {
               setRegionFilter(e.target.value);
