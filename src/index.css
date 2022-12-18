@@ -5,5 +5,5 @@
 @tailwind utilities;
 
 body {
-  @apply dark:bg-dark-background dark:text-dark-text;
+  @apply bg-light-background dark:bg-dark-background dark:text-dark-text;
 }

@@ -26,7 +26,7 @@ const NavBar = () => {
 
   return (
     <header className="mb-10 max-w-full shadow-md dark:bg-dark-element">
-      <nav className="mx-auto flex max-w-[1440px] items-center justify-between px-4 py-6 ">
+      <nav className="mx-auto flex w-10/12 max-w-[1440px] items-center justify-between py-6 sm:w-8/12">
         <h1 className="text-xl font-bold">Where in the world?</h1>
 
         <div className="flex items-center gap-4">
