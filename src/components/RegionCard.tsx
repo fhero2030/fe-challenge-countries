@@ -5,14 +5,15 @@ type Props = {
   capital: string;
   population: number;
   name: string;
+  flag: string;
 };
 
 const RegionCard = (props: Props) => {
-  const { region, capital, name, population } = props;
+  const { region, capital, name, population, flag } = props;
 
   return (
     <div className="overflow-hidden rounded-lg shadow-md">
-      <img src="https://images.unsplash.com/photo-1628825216807-441808e135b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" />
+      <img src={flag} className="h-44 w-full" />
 
       <div className="px-4 pt-6 pb-12">
         <h3 className="mb-4 font-bold">{name}</h3>
