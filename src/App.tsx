@@ -15,12 +15,16 @@ function App() {
   const [countries, setCountries] = useState<Country[]>([]);
 
   const [regionFilter, setRegionFilter] = useState("");
+  const [countryFilter, setCountryFilter] = useState("");
 
   useEffect(() => {
     const fetchCountries = async () => {
       try {
-        const response = await fetch("https://restcountries.com/v2/all");
+        let query: string = "https://restcountries.com/v2/all";
+
+        const response = await fetch(query);
         const countries: Country[] = await response.json();
+
         setCountries(countries);
       } catch (error) {
         throw new Error("It seems like there's a problem with your request");
@@ -32,8 +36,23 @@ function App() {
     fetchCountries();
   }, []);
 
-  console.log(regionFilter);
+  const filteredCountry =
+    countryFilter && regionFilter
+      ? countries.filter(({ name, region }) => {
+          return (
+            name.toLowerCase().includes(countryFilter) &&
+            region.toLowerCase() === regionFilter
+          );
+        })
+      : countryFilter
+      ? countries.filter(({ name }) =>
+          name.toLowerCase().includes(countryFilter)
+        )
+      : regionFilter
+      ? countries.filter(({ region }) => region.toLowerCase() === regionFilter)
+      : countries;
 
+  console.log(filteredCountry);
   return (
     <>
       <NavBar />
@@ -42,6 +61,9 @@ function App() {
           <input
             className="mb-10 block w-full px-8 py-4 text-xs shadow-md sm:m-0 sm:w-80"
             placeholder="Search for a country..."
+            onChange={(e) => {
+              setCountryFilter(e.target.value.trim());
+            }}
           />
 
           <select
@@ -54,14 +76,16 @@ function App() {
           >
             <option value="">Filter by Region</option>
             <option value="africa">Africa</option>
-            <option value="america">America</option>
+            <option value="americas">America</option>
             <option value="asia">Asia</option>
             <option value="europe">Europe</option>
             <option value="oceania">Oceania</option>
           </select>
         </div>
 
-        {countries.length > 0 && <RegionList countries={countries} />}
+        {filteredCountry.length > 0 && (
+          <RegionList countries={filteredCountry} />
+        )}
       </main>
     </>
   );
