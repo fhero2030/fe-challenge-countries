@@ -65,7 +65,7 @@ function HomePage() {
 
         <select
           id="region"
-          className="rounded-md border-r-[16px] border-r-dark-text p-4 text-xs font-semibold shadow-md dark:border-r-dark-element dark:bg-dark-element sm:w-56"
+          className="rounded-md border-r-[16px] border-r-dark-text bg-dark-text p-4 text-xs font-semibold shadow-md dark:border-r-dark-element dark:bg-dark-element sm:w-56"
           defaultValue={regionFilter}
           onChange={(e) => {
             setRegionFilter(e.target.value);

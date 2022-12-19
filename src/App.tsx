@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <NavBar />
-      <main className="mx-auto w-11/12 max-w-[1440px] ">
+      <main className="mx-auto w-11/12 max-w-[1440px]">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/:countryName" element={<CountryPage />} />
